@@ -1,0 +1,6 @@
+server:
+  port: 9091
+spring:
+  mvc:
+    view:
+      suffix: .html
