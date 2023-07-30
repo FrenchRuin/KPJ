@@ -3,7 +3,6 @@
 fun main(){
     nullCheck()
 
-
 }
 
 // 1. 함수
@@ -134,9 +133,20 @@ fun nullCheck() {
     var nullNameInUpperCase = nullName?.uppercase()
 
     // ? :
-    val lastName : String? = null
-
+    val lastName: String? = "Hong"
     val fullName = name + " " + (lastName ?: "No LastName")
-
+    var mLastName = lastName ?: throw IllegalArgumentException("No Last Name")
     println(fullName)
+}
+
+// 정말 널일 수가 없다 . !!
+fun ignoreNulls(str: String?) {
+    val mNotNull: String = str!!
+    val upper = mNotNull.uppercase()
+
+    // Null 이 아니면 let 실행
+    val email: String? = "qpsh023@naver.com"
+    email?.let {
+        println(email)
+    }
 }
