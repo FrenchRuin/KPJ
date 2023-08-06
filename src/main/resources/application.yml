@@ -4,3 +4,10 @@ spring:
   mvc:
     view:
       suffix: .html
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  thymeleaf:
+    cache: false
