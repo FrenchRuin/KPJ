@@ -15,43 +15,50 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Schedular</div>
+            <div class="sidebar-brand-text mx-3">DEV_LEE</div>
         </a>
 
         <!-- Divider -->
-        <hr class="sidebar-divider my-0">
+        <hr class="sidebar-divider">
 
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" th:href="@{/}">
-                <i class="fas fa-fw fa-home"></i>
-                <span>Home</span></a>
+        <!-- Info -->
+        <div class="sidebar-heading">
+            info
+        </div>
+
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/info/notice}">
+                <i class="fas fa-fw fa-info"></i>
+                <span>Notice</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/info/devInfo}">
+                <i class="fas fa-fw fa-people-arrows"></i>
+                <span>Dev_Info</span></a>
         </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <!--  -->
+        <!-- Heading -->
         <div class="sidebar-heading">
-            INFO
+            service
         </div>
 
         <li class="nav-item">
-            <a class="nav-link" th:href="@{/notice/}">
-                <i class="fas fa-fw fa-notes-medical"></i>
-                <span>Notice</span></a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Dev_Info</span></a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" th:href="@{/calendar}">
-                <i class="fas fa-fw fa-calendar"></i>
-                <span>Calendar</span></a>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHospital"
+               aria-expanded="true" aria-controls="collapseHospital">
+                <i class="fas fa-fw fa-hospital"></i>
+                <span>Hospital</span>
+            </a>
+            <div id="collapseHospital" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Hospital service</h6>
+                    <a class="collapse-item" th:href="@{/service/hospital/scheduler}">Scheduler</a>
+                </div>
+            </div>
         </li>
 
         <!-- Divider -->

@@ -2,7 +2,6 @@ package com.example.kpj.controller
 
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
 
 
 @Controller
@@ -46,11 +45,6 @@ class MainController {
     @GetMapping("/buttons")
     fun buttons(): String {
         return "buttons"
-    }
-
-    @GetMapping("/calendar")
-    fun calendar(): String {
-        return "/calendar/calendar"
     }
 
     @GetMapping("/colors")

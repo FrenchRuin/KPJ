@@ -5,12 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
-@RequestMapping("/notice")
-class NoticeController {
+@RequestMapping("/service")
+class ServiceController {
 
-    @GetMapping("/")
-    fun notice(): String {
-        return "/notice/notice"
+    @GetMapping("/hospital/scheduler")
+    fun scheduler() : String {
+        return "/service/scheduler"
     }
-
 }

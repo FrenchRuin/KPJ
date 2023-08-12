@@ -9,7 +9,6 @@
 
 <body id="page-top">
 
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -29,73 +28,61 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-1 text-gray-800">Hospital Employee Scheduler Service</h1>
-                    <p class="mb-4">병원 근무자들의 근무 스케쥴 자동배정 서비스와 각종 부서의 공지사항등을 관리합니다.</p>
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Welcome</h1>
+                    </div>
 
-                    <!-- Content Row -->
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Notice</h6>
-                                    <a th:href="@{/notice/}">
-                                        <i class="fas fa-arrow-circle-right fa-lg fa-fw text-gray-400"></i>
-                                    </a>
-                                </div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
-                                            <tr>
-                                                <th>Title</th>
-                                                <th>Contents</th>
-                                                <th>Writer</th>
-                                                <th>Date</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>Developing Start</td>
-                                                <td>...</td>
-                                                <td>Dev_Lee</td>
-                                                <td>2023.08.12</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Info</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Dev_Info</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a class="btn btn-circle btn-success" th:href="@{/info/devInfo}">
+                                                <i class="fas fa-info"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <!-- Basic Card Example -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">
-                                        Hospital Employee Scheduler Service
-                                    </h6>
-                                </div>
-                                <div class="card-body border-bottom-info">
-                                    병원 근무자들의 근무 스케쥴 자동배정 서비스와 각종 부서의 공지사항등을 관리합니다.
-                                </div>
-                            </div>
-                        </div>
+                    </div>
 
-                        <div class="col-lg-3">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">
-                                        Hospital Employee Scheduler Service
-                                    </h6>
-                                </div>
-                                <div class="card-body border-bottom-info">
-                                    .border-left-info
+                    <hr>
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Service</h1>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Service / hospital</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Hospital Employee Scheduler Service</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a class="btn btn-circle btn-primary" th:href="@{/service/hospital/scheduler}">
+                                                <i class="fas fa-calendar"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 
