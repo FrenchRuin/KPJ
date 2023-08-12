@@ -1,197 +1,86 @@
 <!DOCTYPE html>
 <html lang="ko"
-    xmlns:th="http://www.thymeleaf.org"
+      xmlns:th="http://www.thymeleaf.org"
 >
 <head th:replace="~{fragment/header :: header}">
 </head>
 
-<style>
-    /* section calendar
-     캘린더만을 위한 css 넣었음
-    */
-
-    .sec_cal {
-        width: 360px;
-        margin: 0 auto;
-        font-family: "NotoSansR";
-    }
-
-    .sec_cal .cal_nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: 700;
-        line-height: 78px;
-        font-size: 48px;
-    }
-
-    .sec_cal .cal_nav .year-month {
-        width: 300px;
-        text-align: center;
-        line-height: 1;
-    }
-
-    .sec_cal .cal_nav .nav {
-        display: flex;
-        border: 1px solid #333333;
-        border-radius: 5px;
-    }
-
-    .sec_cal .cal_nav .go-prev,
-    .sec_cal .cal_nav .go-next {
-        display: block;
-        width: 50px;
-        height: 78px;
-        font-size: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .sec_cal .cal_nav .go-prev::before,
-    .sec_cal .cal_nav .go-next::before {
-        content: "";
-        display: block;
-        width: 20px;
-        height: 20px;
-        border: 3px solid #000;
-        border-width: 3px 3px 0 0;
-        transition: border 0.1s;
-    }
-
-    .sec_cal .cal_nav .go-prev:hover::before,
-    .sec_cal .cal_nav .go-next:hover::before {
-        border-color: #ed2a61;
-    }
-
-    .sec_cal .cal_nav .go-prev::before {
-        transform: rotate(-135deg);
-    }
-
-    .sec_cal .cal_nav .go-next::before {
-        transform: rotate(45deg);
-    }
-
-    .sec_cal .cal_wrap {
-        padding-top: 40px;
-        position: relative;
-        margin: 0 auto;
-    }
-
-    .sec_cal .cal_wrap .days {
-        display: flex;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .sec_cal .cal_wrap::after {
-        top: 368px;
-    }
-
-    .sec_cal .cal_wrap .day {
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        width: calc(100% / 7);
-        text-align: left;
-        color: #999;
-        font-size: 12px;
-        text-align: center;
-        border-radius:5px
-    }
-
-    .current.today {background: rgb(242 242 242);}
-
-    .sec_cal .cal_wrap .dates {
-        display: flex;
-        flex-flow: wrap;
-        height: 290px;
-    }
-
-    .sec_cal .cal_wrap .day:nth-child(7n -1) {
-        color: #3c6ffa;
-    }
-
-    .sec_cal .cal_wrap .day:nth-child(7n) {
-        color: #ed2a61;
-    }
-
-    .sec_cal .cal_wrap .day.disable {
-        color: #ddd;
-    }
-</style>
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+<!-- Page Wrapper -->
+<div id="wrapper">
 
-        <!-- 사이드바 fragment -->
-        <ul th:replace="~{fragment/sideBar :: sideBar}"></ul>
+    <!-- 사이드바 fragment -->
+    <ul th:replace="~{fragment/sideBar :: sideBar}"></ul>
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Main Content -->
-            <div id="content">
+        <!-- Main Content -->
+        <div id="content">
 
-                <!--  상단바 Fragment  -->
-                <nav th:replace="~{fragment/navBar :: navBar}"></nav>
+            <!--  상단바 Fragment  -->
+            <nav th:replace="~{fragment/navBar :: navBar}"></nav>
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-1 text-gray-800">Hospital Employee Scheduler Service</h1>
-                    <p class="mb-4">병원 근무자들의 근무 스케쥴 자동배정 서비스와 각종 부서의 공지사항등을 관리합니다.</p>
+                <h1 class="h3 mb-1 text-gray-800">Hospital Employee Scheduler Service</h1>
+                <p class="mb-4">병원 근무자들의 근무 스케쥴 자동배정 서비스와 각종 부서의 공지사항등을 관리합니다.</p>
 
-                    <!-- Content Row -->
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="sec_cal">
-                                <div class="cal_nav">
-                                    <a href="javascript:" class="nav-btn go-prev">prev</a>
-                                    <div class="year-month"></div>
-                                    <a href="javascript:" class="nav-btn go-next">next</a>
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="card shadow mb-4">
+                            <div class="card-header cal_nav py-3 d-flex flex-row align-items-center justify-content-lg-center">
+                                <a href="javascript:" class="nav-btn btn btn-circle btn-lg go-prev">
+                                    <i class="fas fa-arrow-circle-left"></i>
+                                </a>
+                                <h3 class="m-0 font-weight-bold text-primary year-month ml-5 mr-5"></h3>
+                                <a href="javascript:" class="nav-btn btn btn-circle btn-lg go-next">
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="row justify-content-evenly">
+                                    <div class="col text-center">MON</div>
+                                    <div class="col text-center">TUE</div>
+                                    <div class="col text-center">WED</div>
+                                    <div class="col text-center">THU</div>
+                                    <div class="col text-center">FRI</div>
+                                    <div class="col text-center text-primary">SAT</div>
+                                    <div class="col text-center text-danger">SUN</div>
                                 </div>
-                                <div class="cal_wrap">
-                                    <div class="days">
-                                        <div class="day">MON</div>
-                                        <div class="day">TUE</div>
-                                        <div class="day">WED</div>
-                                        <div class="day">THU</div>
-                                        <div class="day">FRI</div>
-                                        <div class="day">SAT</div>
-                                        <div class="day">SUN</div>
-                                    </div>
-                                    <div class="dates"></div>
+                                <hr>
+                                <div class="dates">
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
-
-            <!-- 푸터 Fragment -->
-            <footer th:replace="~{fragment/footer :: footer}"></footer>
+            <!-- /.container-fluid -->
         </div>
-        <!-- End of Content Wrapper -->
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- End of Main Content -->
 
-    <div th:replace="~{fragment/scriptFragment :: scriptFragment}"></div>
+        <!-- 푸터 Fragment -->
+        <footer th:replace="~{fragment/footer :: footer}"></footer>
+    </div>
+    <!-- End of Content Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
+
+<div th:replace="~{fragment/scriptFragment :: scriptFragment}"></div>
 
 </body>
 <script th:inline="javascript">
     /*<![CDATA[*/
-    $(document).ready(function() {
+    $(document).ready(function () {
         calendarInit();
-        console.log("Ddddd");
     });
+
+
     /*
         달력 렌더링 할 때 필요한 정보 목록
 
@@ -199,30 +88,27 @@
         금월 마지막일 날짜와 요일
         전월 마지막일 날짜와 요일
     */
-
     function calendarInit() {
 
         // 날짜 정보 가져오기
-        var date = new Date(); // 현재 날짜(로컬 기준) 가져오기
-        var utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000); // uct 표준시 도출
-        var kstGap = 9 * 60 * 60 * 1000; // 한국 kst 기준시간 더하기
-        var today = new Date(utc + kstGap); // 한국 시간으로 date 객체 만들기(오늘)
+        let date = new Date(); // 현재 날짜(로컬 기준) 가져오기
+        let utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000); // uct 표준시 도출
+        let kstGap = 9 * 60 * 60 * 1000; // 한국 kst 기준시간 더하기
+        let today = new Date(utc + kstGap); // 한국 시간으로 date 객체 만들기(오늘)
 
-        var thisMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        let thisMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate());
         // 달력에서 표기하는 날짜 객체
 
-
-        var currentYear = thisMonth.getFullYear(); // 달력에서 표기하는 연
-        var currentMonth = thisMonth.getMonth(); // 달력에서 표기하는 월
-        var currentDate = thisMonth.getDate(); // 달력에서 표기하는 일
-
-        // kst 기준 현재시간
-        // console.log(thisMonth);
+        let currentYear = thisMonth.getFullYear(); // 달력에서 표기하는 연
+        let currentMonth = thisMonth.getMonth(); // 달력에서 표기하는 월
+        let currentDate = thisMonth.getDate(); // 달력에서 표기하는 일
 
         // 캘린더 렌더링
         renderCalender(thisMonth);
 
         function renderCalender(thisMonth) {
+
+            $('.dates').html("");
 
             // 렌더링을 위한 데이터 정리
             currentYear = thisMonth.getFullYear();
@@ -230,57 +116,76 @@
             currentDate = thisMonth.getDate();
 
             // 이전 달의 마지막 날 날짜와 요일 구하기
-            var startDay = new Date(currentYear, currentMonth, 0);
-            var prevDate = startDay.getDate();
-            var prevDay = startDay.getDay();
+            let startDay = new Date(currentYear, currentMonth, 0);
+            let prevDate = startDay.getDate();
+            let prevDay = startDay.getDay();
 
             // 이번 달의 마지막날 날짜와 요일 구하기
-            var endDay = new Date(currentYear, currentMonth + 1, 0);
-            var nextDate = endDay.getDate();
-            var nextDay = endDay.getDay();
-
-            // console.log(prevDate, prevDay, nextDate, nextDay);
+            let endDay = new Date(currentYear, currentMonth + 1, 0);
+            let nextDate = endDay.getDate();
+            let nextDay = endDay.getDay();
 
             // 현재 월 표기
             $('.year-month').text(currentYear + '.' + (currentMonth + 1));
 
-            // 렌더링 html 요소 생성
-            calendar = document.querySelector('.dates')
-            calendar.innerHTML = '';
+            // html 요소 생성
+            let appendHtml = '';
+            // 7일단위로 라인 변경
+            let _rowChk = 1;
 
             // 지난달
-            for (var i = prevDate - prevDay + 1; i <= prevDate; i++) {
-                calendar.innerHTML = calendar.innerHTML + '<div class="day prev disable">' + i + '</div>'
+            for (let i = prevDate - prevDay + 1; i <= prevDate; i++) {
+                if (_rowChk == 1) {
+                    appendHtml += '<div class="row justify-content-evenly">';
+                }
+                appendHtml += '<div class="col card m-3" style="height: 300px"><div class="card-body"><div class="text-gray-400">' + i + '</div></div></div>';
+                _rowChk++;
             }
             // 이번달
-            for (var i = 1; i <= nextDate; i++) {
-                calendar.innerHTML = calendar.innerHTML + '<div class="day current">' + i + '</div>'
+            for (let i = 1; i <= nextDate; i++) {
+                if (_rowChk % 7 == 1) {
+                    appendHtml += '<div class="row justify-content-evenly">';
+                }
+                appendHtml += '<div class="col card m-3 current" style="height: 300px"><div class="card-body"><div class="text-black">' + i + '</div></div></div>';
+                if (_rowChk % 7 == 0) {
+                    appendHtml += '</div>';
+                }
+                _rowChk++;
             }
             // 다음달
-            for (var i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
-                calendar.innerHTML = calendar.innerHTML + '<div class="day next disable">' + i + '</div>'
+            for (let i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
+                if (_rowChk % 7 == 1) {
+                    appendHtml += '<div class="row justify-content-evenly">';
+                }
+                appendHtml += '<div class="col card m-3" style="height: 300px"><div class="card-body"><div class="text-gray-400">' + i + '</div></div></div>';
+                if (_rowChk % 7 == 0) {
+                    appendHtml += '</div>';
+                }
+                _rowChk++;
             }
+            $('.dates').append(appendHtml);
 
             // 오늘 날짜 표기
             if (today.getMonth() == currentMonth) {
                 todayDate = today.getDate();
                 var currentMonthDate = document.querySelectorAll('.dates .current');
-                currentMonthDate[todayDate -1].classList.add('today');
+                currentMonthDate[todayDate - 1].classList.add('border-bottom-info');
             }
         }
 
         // 이전달로 이동
-        $('.go-prev').on('click', function() {
+        $('.go-prev').on('click', function () {
             thisMonth = new Date(currentYear, currentMonth - 1, 1);
             renderCalender(thisMonth);
         });
 
         // 다음달로 이동
-        $('.go-next').on('click', function() {
+        $('.go-next').on('click', function () {
             thisMonth = new Date(currentYear, currentMonth + 1, 1);
             renderCalender(thisMonth);
         });
     }
+
     /*]]>*/
 </script>
 

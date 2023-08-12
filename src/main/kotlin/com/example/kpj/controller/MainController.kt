@@ -53,5 +53,10 @@ class MainController {
         return "/calendar/calendar"
     }
 
+    @GetMapping("/colors")
+    fun colors(): String {
+        return "utilities-color"
+    }
+
 
 }
