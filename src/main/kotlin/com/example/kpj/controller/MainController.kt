@@ -43,5 +43,15 @@ class MainController {
         return "cards"
     }
 
+    @GetMapping("/buttons")
+    fun buttons(): String {
+        return "buttons"
+    }
+
+    @GetMapping("/calendar")
+    fun calendar(): String {
+        return "/calendar/calendar"
+    }
+
 
 }
