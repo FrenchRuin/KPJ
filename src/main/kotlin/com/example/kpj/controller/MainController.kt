@@ -52,5 +52,15 @@ class MainController {
         return "utilities-color"
     }
 
+    @GetMapping("/login")
+    fun login(): String {
+        return "login"
+    }
+
+    @GetMapping("/register")
+    fun register(): String {
+        return "register"
+    }
+
 
 }

@@ -67,6 +67,12 @@
 </div>
 <!-- End of Page Wrapper -->
 
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
 <div th:replace="~{fragment/scriptFragment :: scriptFragment}"></div>
 
 </body>
@@ -75,7 +81,6 @@
     $(document).ready(function () {
         calendarInit();
     });
-
 
     /*
         달력 렌더링 할 때 필요한 정보 목록

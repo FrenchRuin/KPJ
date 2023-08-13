@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-    xmlns:th="http://www.thymeleaf.org"
+      xmlns:th="http://www.thymeleaf.org"
 >
 
 <head th:replace="~{fragment/header :: header}">
@@ -8,86 +8,101 @@
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <!-- Sidebar -->
+    <ul th:replace="fragment/sideBar :: sideBar"></ul>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+            <nav th:replace="~{fragment/navBar :: navBar}"></nav>
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">Notice</h1>
+                <p class="mb-4">기본 공지사항 서비스</p>
 
-        <!-- Sidebar -->
-        <ul th:replace="fragment/sideBar :: sideBar"></ul>
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-                <nav th:replace="~{fragment/navBar :: navBar}"></nav>
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Notice</h1>
-                    <p class="mb-4">스케쥴러 공지사항입니다.</p>
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                <!-- row start-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Notice Table</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="datsaTable" width="100%" cellspacing="0">
+                                        <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th width="60%">Title</th>
+                                            <th width="20%">Writer</th>
+                                            <th width="20%">Created Date</th>
                                         </tr>
-                                    </thead>
-                                    <tfoot>
+                                        </thead>
+                                        <tbody>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <td>Title</td>
+                                            <td>Writer</td>
+                                            <td>Created Date</td>
                                         </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- 입력 컨트롤 -->
+                    <div class="col-lg-4">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Apply Notice</h6>
+                            </div>
+                            <div class="card-body">
+                                <form class="user">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="text" class="form-control form-control-user" id="writer"
+                                                   placeholder="Writer">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="date" class="form-control form-control-user" id="createdDate"
+                                                   placeholder="Created Date">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea  class="form-control" style="height: 300px;" placeholder="Leave a Content" id="contents"></textarea>
+                                    </div>
+                                    <hr>
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <button class="btn btn-success btn-user btn-block ">
+                                                <i class="fas fa-check"></i> Apply
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button class="btn btn-outline-danger btn-user btn-block ">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
-
-            <footer th:replace="~{fragment/footer :: footer}"></footer>
-
+            <!-- /.container-fluid -->
         </div>
-        <!-- End of Content Wrapper -->
-
+        <!-- End of Main Content -->
+        <footer th:replace="~{fragment/footer :: footer}"></footer>
     </div>
-    <!-- End of Page Wrapper -->
-
-   <div th:replace="~{fragment/scriptFragment ::scriptFragment}"></div>
-
+    <!-- End of Content Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
+<div th:replace="~{fragment/scriptFragment ::scriptFragment}"></div>
 </body>
 
 </html>
