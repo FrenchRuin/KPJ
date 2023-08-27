@@ -8,25 +8,18 @@
 </head>
 
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
-
         <!-- 사이드바 fragment -->
         <ul th:replace="~{fragment/sideBar :: sideBar}"></ul>
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
             <!-- Main Content -->
             <div id="content">
-
                 <!--  상단바 Fragment  -->
                 <nav th:replace="~{fragment/navBar :: navBar}"></nav>
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Welcome</h1>
@@ -85,17 +78,14 @@
                 <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
-
             <!-- 푸터 Fragment -->
             <footer th:replace="~{fragment/footer :: footer}"></footer>
         </div>
         <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
-
     <!--  스크립트 Fragment   -->
     <div th:replace="~{fragment/scriptFragment ::scriptFragment}"></div>
-
 </body>
 
 </html>
