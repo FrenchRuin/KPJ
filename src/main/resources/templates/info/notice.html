@@ -43,8 +43,8 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td><a th:href="@{/charts}">Title</a></td>
+                                        <tr th:each="notice : ${noticeEntity}">
+                                            <td th:text="${notice.title}"><a th:href="@{/charts}">Title</a></td>
                                             <td>Writer</td>
                                             <td>Created Date</td>
                                             <td>Updated Date</td>
@@ -63,20 +63,20 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Apply Notice</h6>
                             </div>
                             <div class="card-body">
-                                <form class="user">
+                                <form class="user" th:action="@{notice/apply}" th:object="${noticeEntity}" method="post">
                                     <div class="form-group row">
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control form-control-user" id="writer"
                                                    placeholder="writer">
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control form-control-user" id="title"
-                                                   placeholder="Title">
+                                            <input type="text" class="form-control form-control-user" id="title" name="title"
+                                                   placeholder="Title" th:field="*{title}">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <textarea class="form-control" style="height: 300px;"
-                                                  placeholder="Leave a Content" id="contents"></textarea>
+                                                  placeholder="Leave a Content" id="contents" name="contents" th:field="*{contents}"></textarea>
                                     </div>
                                     <hr>
                                     <div class="row align-items-center">
