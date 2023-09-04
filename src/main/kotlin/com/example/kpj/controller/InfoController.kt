@@ -1,7 +1,7 @@
 package com.example.kpj.controller
 
 import com.example.kpj.entity.NoticeEntity
-import com.example.kpj.repository.NoticeRepository
+import com.example.kpj.service.NoticeService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -20,26 +20,25 @@ import org.springframework.web.bind.annotation.RequestMapping
 @RequestMapping("/info")
 class InfoController {
 
-    @Autowired
-    private lateinit var noticeRepository: NoticeRepository
+    @Autowired(required = false)
+    private lateinit var noticeService: NoticeService
 
     /*Notice Part*/
     @GetMapping("/notice")
     fun notice(model: Model, noticeEntity: NoticeEntity): String {
-        model.addAttribute("NoticeEntity",noticeRepository.findAll())
+        model.addAttribute("NoticeEntity", noticeService.findAllNotice())
         return "/info/notice"
     }
 
     @PostMapping("/notice/apply")
     fun noticeApply(noticeEntity: NoticeEntity): String {
-        noticeRepository.save(noticeEntity)
+        noticeService.saveNotice(noticeEntity)
         return "redirect:/info/notice"
     }
 
     /*Dev_Info Part*/
     @GetMapping("/devInfo")
     fun devInfo(): String {
-
         return "/info/devInfo"
     }
 
