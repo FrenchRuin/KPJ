@@ -2,6 +2,7 @@ package com.example.kpj.controller
 
 import com.example.kpj.entity.NoticeEntity
 import com.example.kpj.service.NoticeService
+import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 * */
 @Controller
 @RequestMapping("/info")
+@Slf4j
 class InfoController {
 
     @Autowired(required = false)
@@ -31,8 +33,8 @@ class InfoController {
     }
 
     @PostMapping("/notice/apply")
-    fun noticeApply(noticeEntity: NoticeEntity): String {
-        noticeService.saveNotice(noticeEntity)
+    fun noticeApply(noticeEntity: NoticeEntity, userName : String): String {
+        noticeService.saveNotice(noticeEntity, userName)
         return "redirect:/info/notice"
     }
 

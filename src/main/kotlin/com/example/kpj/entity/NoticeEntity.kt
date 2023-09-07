@@ -17,7 +17,8 @@ class NoticeEntity {
     var contents: String? = null
 
     @ManyToOne(fetch = FetchType.LAZY)
-    lateinit var writer: UserEntity
+    @JoinColumn(name = "userId")
+    var writer: UserEntity? = null
 
     @Column
     var createdTime: LocalDateTime = LocalDateTime.now()

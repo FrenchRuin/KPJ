@@ -45,9 +45,9 @@
                                         <tbody>
                                         <tr th:each="Notice : ${NoticeEntity}">
                                             <td th:text="${Notice.title}"><a th:href="@{/charts}">Title</a></td>
-                                            <td th:text="${Notice.writer}">Writer</td>
-                                            <td>Created Date</td>
-                                            <td>Updated Date</td>
+                                            <td th:text="${Notice.writer.userName}">Writer</td>
+                                            <td th:text="${Notice.createdTime}">Created Date</td>
+                                            <td th:text="${Notice.updatedTime}">Updated Date</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -66,7 +66,8 @@
                                 <form class="user" th:action="@{notice/apply}" method="post">
                                     <div class="form-group row">
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control form-control-user" id="writer"
+                                            <input type="text" class="form-control form-control-user" id="userName"
+                                                   name="userName"
                                                    placeholder="writer">
                                         </div>
                                         <div class="col-sm-6">
