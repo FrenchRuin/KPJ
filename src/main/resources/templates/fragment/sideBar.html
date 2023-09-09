@@ -26,11 +26,7 @@
             info
         </div>
 
-        <li class="nav-item">
-            <a class="nav-link" th:href="@{/info/notice}">
-                <i class="fas fa-fw fa-info"></i>
-                <span>Notice</span></a>
-        </li>
+
 
         <li class="nav-item">
             <a class="nav-link" th:href="@{/info/devInfo}">
@@ -47,18 +43,15 @@
         </div>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHospital"
-               aria-expanded="true" aria-controls="collapseHospital">
+            <a class="nav-link" th:href="@{/service/notice}">
+                <i class="fas fa-fw fa-info"></i>
+                <span>Notice</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/service/hospital}">
                 <i class="fas fa-fw fa-hospital"></i>
-                <span>Hospital</span>
-            </a>
-            <div id="collapseHospital" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Hospital service</h6>
-                    <a class="collapse-item" th:href="@{/service/hospital/scheduler}">Scheduler</a>
-                </div>
-            </div>
+                <span>Hospital</span></a>
         </li>
 
         <!-- Divider -->

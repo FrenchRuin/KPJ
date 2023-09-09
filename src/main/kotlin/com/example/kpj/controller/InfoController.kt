@@ -27,30 +27,6 @@ import org.springframework.web.bind.annotation.ResponseBody
 @Slf4j
 class InfoController {
 
-    @Autowired(required = false)
-    private lateinit var noticeService: NoticeService
-
-    /*Notice Part*/
-    @GetMapping("/notice")
-    fun notice(model: Model, noticeEntity: NoticeEntity): String {
-        model.addAttribute("NoticeEntity", noticeService.findAllNotice())
-        return "/info/notice"
-    }
-
-    /*Notice Part*/
-    @RequestMapping("/notice/find")
-    @ResponseBody
-    fun getNotice(@RequestParam("id") id : Long) = noticeService.findNoticeById(id)
-
-
-    @PostMapping("/notice/apply")
-    fun noticeApply(noticeEntity: NoticeEntity, userName : String): String {
-        noticeService.saveNotice(noticeEntity, userName)
-        return "redirect:/info/notice"
-    }
-
-
-
     /*Dev_Info Part*/
     @GetMapping("/devInfo")
     fun devInfo(): String {
