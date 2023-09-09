@@ -10,27 +10,21 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 @Entity
-class NoticeEntity {
-
+class NoticeEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null;
-
+    var id: Long? = null,
     @Column
-    var title: String? = null
-
+    var title: String? = null,
     @Column
-    var contents: String? = null
-
+    var contents: String? = null,
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
-    var writer: UserEntity? = null
-
+    var writer: UserEntity? = null,
     @Column
     @CreatedDate
-    var createdTime: String? = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-
+    var createdTime: String? = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
     @Column
     @LastModifiedDate
     var updatedTime: String? = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-}
+)
