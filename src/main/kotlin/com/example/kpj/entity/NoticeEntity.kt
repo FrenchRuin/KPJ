@@ -1,7 +1,13 @@
 package com.example.kpj.entity
 
 import jakarta.persistence.*
+import org.hibernate.annotations.CreationTimestamp
+import org.hibernate.annotations.UpdateTimestamp
+import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.LastModifiedDate
+import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 @Entity
 class NoticeEntity {
@@ -21,8 +27,10 @@ class NoticeEntity {
     var writer: UserEntity? = null
 
     @Column
-    var createdTime: LocalDateTime = LocalDateTime.now()
+    @CreatedDate
+    var createdTime: String? = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
 
     @Column
-    var updatedTime: LocalDateTime? = null
+    @LastModifiedDate
+    var updatedTime: String? = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
 }

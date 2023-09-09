@@ -44,7 +44,7 @@
                                         </thead>
                                         <tbody>
                                         <tr th:each="Notice : ${NoticeEntity}">
-                                            <td th:text="${Notice.title}"><a th:href="@{/charts}">Title</a></td>
+                                            <td ><a href="javascript:void(0);" th:onclick="|javascript:getNotice('${Notice.id}')|" th:text="${Notice.title}" >Title</a></td>
                                             <td th:text="${Notice.writer.userName}">Writer</td>
                                             <td th:text="${Notice.createdTime}">Created Date</td>
                                             <td th:text="${Notice.updatedTime}">Updated Date</td>
@@ -52,6 +52,15 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
@@ -110,5 +119,31 @@
 <!-- End of Page Wrapper -->
 <div th:replace="~{fragment/scriptFragment ::scriptFragment}"></div>
 </body>
+
+<script type="text/javascript">
+    function getNotice(idx) {
+        $.ajax({
+            type : 'GET',           // 타입 (get, post, put 등등)
+            url : '/info/notice/find' ,     // 요청할 서버url
+            async : true,            // 비동기화 여부 (default : true)
+            data : {
+                "id" : idx
+            },
+            headers : {              // Http header
+                "Content-Type" : "application/json",
+            },
+            dataType : 'json',       // 데이터 타입 (html, xml, json, text 등등)
+            success : function(result) {                // 결과 성공 콜백함수
+                $("#userName").val(result.writer.userName)
+                $("#title").val(result.title)
+                $("#contents").val(result.contents)
+            },
+            error : function(request, status, error) { // 결과 에러 콜백함수
+                console.log(error)
+            }
+        })
+
+    }
+</script>
 
 </html>
