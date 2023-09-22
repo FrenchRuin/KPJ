@@ -10,7 +10,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 @Entity
-class NoticeEntity (
+class NoticeEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
@@ -27,4 +27,15 @@ class NoticeEntity (
     @Column
     @LastModifiedDate
     var updatedTime: String? = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-)
+) {
+    /*ToString Override*/
+    override fun toString(): String {
+        return "UserEntity(id = $id" +
+                ", title = $title" +
+                ", contents = $contents "+
+                ", writer = $writer "+
+                ", createdTime = $createdTime "+
+                ", updatedTime = $updatedTime )"
+    }
+
+}

@@ -22,16 +22,28 @@ repositories {
 }
 
 dependencies {
+    // SpringBoot
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-log4j2")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-    implementation ("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
-    implementation("com.h2database:h2") // H2 데이터베이스
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    // Kotlin
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation ("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
+
+    // JPA
+    /*
+       REF > mysql-connector-java 명칭 변경
+       >> https://docs.spring.io/spring-boot/docs/3.0.5/reference/html/dependency-versions.html#appendix.dependency-versions.coordinates
+    * */
+    runtimeOnly("com.mysql:mysql-connector-j")
+
+    // ETC
     implementation("org.modelmapper:modelmapper:2.1.1") // ModelMapper >> Entity To Dto or Dto to Entity tool
 }
 

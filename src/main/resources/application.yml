@@ -11,17 +11,21 @@ spring:
       enabled: true
   thymeleaf:
     cache: false
-  h2:
-    console:
-      enabled: true
+  # Mysql DB Connection Setting
+  # REF > https://velog.io/@minbo2002/JPA-application.yml-%EC%84%A4%EC%A0%95
   datasource:
-    hikari:
-      driver-class-name: org.h2.Driver
-      jdbc-url: jdbc:h2:mem:KPJ
-      username: sa
-      password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/KPJ?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: as2646
+  # JPA Setting
+  # REF >> https://mopil.tistory.com/152
   jpa:
+    database: mysql
+    show-sql: true
     hibernate:
       ddl-auto: update
-    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 
